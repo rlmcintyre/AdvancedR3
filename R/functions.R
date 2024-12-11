@@ -3,9 +3,7 @@
 #' @param data is the data file you are starting from
 #'
 #' @return a data frame or tibble of descriptive statistics
-
-
-descriptive_statistics <- function(data) {
+descriptive_stats <- function(data) {
     data |>
         dplyr::group_by(metabolite) |>
         dplyr::summarise(dplyr::across(
@@ -16,6 +14,6 @@ descriptive_statistics <- function(data) {
             )
         )) |>
         dplyr::mutate(dplyr::across(
-            where(is.numeric),
+            tidyselect::where(is.numeric),
             ~ round(.x, digits = 1)
         ))}
