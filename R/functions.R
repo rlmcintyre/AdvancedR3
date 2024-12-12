@@ -64,7 +64,7 @@ metabolites_to_wider <- function(data) {
 #' @param data lipidomics dataset
 #' @param metabolite_variable column of the metabolite variable
 #'
-#' @return data frame
+#' @return recipe object
 
 create_recipe_spec <- function(data, metabolite_variable) {
   recipes::recipe(data) |>
